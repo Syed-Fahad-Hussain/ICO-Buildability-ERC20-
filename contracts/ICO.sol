@@ -7,7 +7,7 @@ import "./AccessControl.sol";
 contract ICO is ERC223Receiver, Ownable {
 
     Token public token;
-    uint public rate = 10;
+    uint public rate;
     uint256 private _openingTime;
     uint256 private _closingTime;
     uint256 private _preSale_openingTime;
@@ -53,6 +53,12 @@ contract ICO is ERC223Receiver, Ownable {
 //    }
 
     function buyToken() public payable timedICO{
+        if(preSale_isOpen()){
+            rate = 8;
+        }
+        else if(isOpen()){
+            rate = 10;
+        }
 
         require((msg.value * rate) <= token.balanceOf(address(this)));
         token.transfer(msg.sender, (msg.value * rate));
