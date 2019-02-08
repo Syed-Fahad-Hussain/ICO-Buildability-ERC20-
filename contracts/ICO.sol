@@ -14,12 +14,12 @@ contract ICO is ERC223Receiver, Ownable {
     uint256 private _preSale_closingTime;
 
 
-    modifier timedICO{
-        require(preSale_isOpen());
-        require(isOpen());
-        _;
-        
-    }
+//    modifier timedICO{
+//        require(preSale_isOpen());
+//        require(isOpen());
+//        _;
+//
+//    }
 
     constructor (address _tokenAddress, uint256 preSale_openingTime, uint256 preSale_closingTime, uint256 openingTime, uint256 closingTime) public {
         token = Token(_tokenAddress);
@@ -52,16 +52,20 @@ contract ICO is ERC223Receiver, Ownable {
 //        token.transfer(msg.sender, (msg.value * rate));
 //    }
 
-    function buyToken() public payable timedICO{
+    function buyToken() public payable {
         if(preSale_isOpen()){
-            rate = 8;
+            rate = 10;
+            require((msg.value * rate) <= token.balanceOf(address(this)));
+            token.transfer(msg.sender, (msg.value * rate));
         }
         else if(isOpen()){
-            rate = 10;
+            rate = 20;
+            require((msg.value * rate) <= token.balanceOf(address(this)));
+            token.transfer(msg.sender, (msg.value * rate));
         }
-
-        require((msg.value * rate) <= token.balanceOf(address(this)));
-        token.transfer(msg.sender, (msg.value * rate));
+        else{
+            revert();
+        }
     }
 
     function tokenWithdraw() public onlyOwner {

@@ -38,9 +38,9 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.5.0;\n\n\ncontract ERC223Receiver {\n    function tokenFallback(address _sender, address _origin, uint _value, bytes memory _data) public returns (bool);\n}\n\n/**\n * @title ERC223 interface\n * @dev see https://github.com/ethereum/EIPs/issues/20\n */\ncontract ERC223Interface {\n    event Transfer(address indexed from, address indexed to, uint256 value);\n    event Approval(address indexed owner, address indexed spender, uint256 value);\n    \n    function name() public view returns (string memory);\n    function symbol() public view returns (string memory);\n    function decimals() public view returns (uint256);\n    function totalSupply() public view returns (uint256);\n    function balanceOf(address _who) public view returns (uint256);\n    function allowance(address _owner, address _spender) public view returns (uint256);\n    function transfer(address _to, uint256 _value) public returns (bool);\n    function transferFrom(address _from, address _to, uint256 _value) public returns (bool);\n    function transfer(address _to, uint _value, bytes memory _data) public returns (bool);\n    function transferFrom(address _from, address _to, uint _value, bytes memory _data) public returns (bool);\n    function approve(address _spender, uint256 _value) public returns (bool);\n}\n",
-  "sourcePath": "/home/syed-fahad-hussain/Documents/blockchain/Ethereum/projects/ICO (1)/ICO-master/contracts/ERC223Interface.sol",
+  "sourcePath": "/home/syed-fahad-hussain/Documents/blockchain/Ethereum/projects/ICO-Buildability/contracts/ERC223Interface.sol",
   "ast": {
-    "absolutePath": "/home/syed-fahad-hussain/Documents/blockchain/Ethereum/projects/ICO (1)/ICO-master/contracts/ERC223Interface.sol",
+    "absolutePath": "/home/syed-fahad-hussain/Documents/blockchain/Ethereum/projects/ICO-Buildability/contracts/ERC223Interface.sol",
     "exportedSymbols": {
       "ERC223Interface": [
         255
@@ -1511,7 +1511,7 @@
     "src": "0:1287:1"
   },
   "legacyAST": {
-    "absolutePath": "/home/syed-fahad-hussain/Documents/blockchain/Ethereum/projects/ICO (1)/ICO-master/contracts/ERC223Interface.sol",
+    "absolutePath": "/home/syed-fahad-hussain/Documents/blockchain/Ethereum/projects/ICO-Buildability/contracts/ERC223Interface.sol",
     "exportedSymbols": {
       "ERC223Interface": [
         255
@@ -2987,7 +2987,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.0-beta.2",
-  "updatedAt": "2019-02-04T12:58:24.327Z",
+  "updatedAt": "2019-02-08T11:16:46.149Z",
   "devdoc": {
     "methods": {}
   },
