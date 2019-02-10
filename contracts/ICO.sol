@@ -13,17 +13,8 @@ contract ICO is ERC223Receiver, Ownable {
     uint256 private _preSale_openingTime;
     uint256 private _preSale_closingTime;
 
-
-//    modifier timedICO{
-//        require(preSale_isOpen());
-//        require(isOpen());
-//        _;
-//
-//    }
-
     constructor (address _tokenAddress, uint256 preSale_openingTime, uint256 preSale_closingTime, uint256 openingTime, uint256 closingTime) public {
         token = Token(_tokenAddress);
-//        token.transfer(address(this), 50000000);
 
         require(openingTime >= block.timestamp);
         require(closingTime > openingTime);
@@ -35,22 +26,11 @@ contract ICO is ERC223Receiver, Ownable {
     }
 
 
-//    function icoBalanceTransfer() internal {
-//
-//        emit Transfer(address(0), msg.sender, _value);
-//        emit Transfer(address(0), msg.sender, _value);
-//
-//    }
-
     function tokenFallback(address _sender, address _origin, uint _value, bytes memory _data ) public returns(bool) {
         require(_sender == owner);
 //        buyToken(msg.sender);
     }
 
-//    function buyToken() public payable onlyWhileOpen{
-//        require((msg.value * rate) <= token.balanceOf(address(this)));
-//        token.transfer(msg.sender, (msg.value * rate));
-//    }
 
     function buyToken() public payable {
         if(preSale_isOpen()){

@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="14b33c23-ea11-422f-aa11-250e45e27f8b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/build/contracts/ERC223Interface.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/contracts/ERC223Interface.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/contracts/ERC223Receiver.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/contracts/ERC223Receiver.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/contracts/ERC223Token.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/contracts/ERC223Token.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/contracts/ICO.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/contracts/ICO.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/contracts/Migrations.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/contracts/Migrations.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/contracts/Ownable.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/contracts/Ownable.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/contracts/Pausable.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/contracts/Pausable.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/contracts/SafeMath.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/contracts/SafeMath.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/contracts/SimpleStorage.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/contracts/SimpleStorage.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/contracts/Token.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/contracts/Token.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/contracts/TokenRepository.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/contracts/TokenRepository.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/ICO.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/ICO.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/2_deploy_contracts.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/2_deploy_contracts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ico.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/ico.test.js" afterDir="false" />
-    </list>
+    <list default="true" id="14b33c23-ea11-422f-aa11-250e45e27f8b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +13,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/ico.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+            <state relative-caret-position="810">
+              <caret line="63" column="2" selection-start-line="63" selection-start-column="2" selection-end-line="63" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -207,16 +192,15 @@
       <workItem from="1549283364985" duration="2240000" />
       <workItem from="1549355473082" duration="11126000" />
       <workItem from="1549529038668" duration="1978000" />
-      <workItem from="1549619284788" duration="7642000" />
+      <workItem from="1549619284788" duration="8340000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88566000" />
+    <option name="totallyTimeSpent" value="89264000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="59" y="25" width="1541" height="875" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24967062" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -359,8 +343,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/ico.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+        <state relative-caret-position="810">
+          <caret line="63" column="2" selection-start-line="63" selection-start-column="2" selection-end-line="63" selection-end-column="2" />
         </state>
       </provider>
     </entry>
