@@ -24,12 +24,6 @@ contract ICO is Owned {
     }
 
 
-    function tokenFallback(address _sender, address _origin, uint _value, bytes memory _data ) public returns(bool) {
-        require(_sender == owner);
-//        buyToken(msg.sender);
-    }
-
-
     function buyToken() public payable {
         if(preSale_isOpen()){
             rate = 10;
