@@ -1,10 +1,8 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.24;
 
-import "./Token.sol";
-import "./ERC223Interface.sol";
-import "./AccessControl.sol";
+import "./ERC20-Token.sol";
 
-contract ICO is ERC223Receiver, Ownable {
+contract ICO is Owned {
 
     Token public token;
     uint public rate;
@@ -26,20 +24,13 @@ contract ICO is ERC223Receiver, Ownable {
     }
 
 
-    function tokenFallback(address _sender, address _origin, uint _value, bytes memory _data ) public returns(bool) {
-        require(_sender == owner);
-//        buyToken(msg.sender);
-    }
-
-
     function buyToken() public payable {
-        if(preSale_isOpen()){
-            rate = 10;
-            require((msg.value * rate) <= token.balanceOf(address(this)));
-            token.transfer(msg.sender, (msg.value * rate));
-        }
-        else if(isOpen()){
-            rate = 20;
+
+        rate = rateOptimizationICO();
+
+
+
+        if(preSale_isOpen() || isOpen()){
             require((msg.value * rate) <= token.balanceOf(address(this)));
             token.transfer(msg.sender, (msg.value * rate));
         }
@@ -47,6 +38,32 @@ contract ICO is ERC223Receiver, Ownable {
             revert();
         }
     }
+
+
+    function rateOptimizationICO() internal view returns(uint){
+        if((block.timestamp >= 1549324800) && (block.timestamp <= 1553212800)){
+            return 1000;
+        }
+        else if((block.timestamp >= 1553299200) && (block.timestamp <= 1553731200)){
+            return 800;
+        }
+        else if((block.timestamp >= 1553817600) && (block.timestamp <= 1554940800)){
+            return 750;
+        }
+        else if((block.timestamp >= 1555718400) && (block.timestamp <= 1555891200)){
+            return 700;
+        }
+        else if((block.timestamp >= 1555977600) && (block.timestamp <= 1556409600)){
+            return 650;
+        }
+        else if((block.timestamp >= 1556496000) && (block.timestamp <= 1556928000)){
+            return 600;
+        }
+        else if((block.timestamp >= 1557014400) && (block.timestamp <= 1559692800)){
+            return 500;
+        }
+    }
+
 
     function tokenWithdraw() public onlyOwner {
         token.transfer(owner, token.balanceOf(address(this)));
@@ -117,4 +134,9 @@ contract ICO is ERC223Receiver, Ownable {
         return block.timestamp > _preSale_closingTime;
     }
 
+	function _forwardFunds() public onlyOwner {
+        owner.transfer(address(this).balance);
+    }
+
 }
+
