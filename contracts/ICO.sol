@@ -6,6 +6,7 @@ contract ICO is Owned {
 
        Token public token;
     uint public rate;
+    uint256 public tokensSold ;
     uint256 private _openingTime;
     uint256 private _closingTime;
     uint256 private _preSale_openingTime;
@@ -29,11 +30,15 @@ contract ICO is Owned {
             rate = 10;
             require((msg.value * rate) <= token.balanceOf(address(this)));
             token.transfer(msg.sender, (msg.value * rate));
+            tokensSold += (msg.value * rate);
+
         }
         else if(isOpen()){
             rate = 20;
             require((msg.value * rate) <= token.balanceOf(address(this)));
             token.transfer(msg.sender, (msg.value * rate));
+            tokensSold += (msg.value * rate);
+
         }
         else{
             revert();
