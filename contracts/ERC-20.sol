@@ -63,7 +63,6 @@ contract ApproveAndCallFallBack {
 // ----------------------------------------------------------------------------
 contract Owned {
     address public owner;
-    address public newOwner;
 
     event OwnershipTransferred(address indexed _from, address indexed _to);
 
@@ -77,14 +76,9 @@ contract Owned {
     }
 
     function transferOwnership(address _newOwner) public onlyOwner {
-        newOwner = _newOwner;
+        owner = _newOwner;
     }
-    function acceptOwnership() public {
-        require(msg.sender == newOwner);
-        emit OwnershipTransferred(owner, newOwner);
-        owner = newOwner;
-        newOwner = address(0);
-    }
+  
 }
 
 
@@ -96,7 +90,7 @@ contract Token is ERC20Interface, Owned, SafeMath {
     string public symbol;
     string public  name;
     uint public decimals;
-    uint public _totalSupply;
+    uint private _totalSupply;
 
     mapping(address => uint) balances;
     mapping(address => mapping(address => uint)) allowed;
@@ -111,8 +105,8 @@ contract Token is ERC20Interface, Owned, SafeMath {
         decimals = 18;
         _totalSupply = 1000000000;
         _totalSupply = _totalSupply * 10 ** decimals;
-        balances[0x41C92a9ECbEDa70637dE5C6157aeca8Fa93727Ef] = _totalSupply;
-        emit Transfer(address(0), 0x41C92a9ECbEDa70637dE5C6157aeca8Fa93727Ef, _totalSupply);
+        balances[owner] = _totalSupply;
+        emit Transfer(address(0), owner, _totalSupply);
     }
     
 
@@ -120,7 +114,7 @@ contract Token is ERC20Interface, Owned, SafeMath {
     // Total supply
     // ------------------------------------------------------------------------
     function totalSupply() public constant returns (uint) {
-        return _totalSupply  - balances[address(0)];
+        return _totalSupply;
     }
 
 
@@ -245,3 +239,4 @@ contract Token is ERC20Interface, Owned, SafeMath {
         emit Transfer(account, address(0), value);
     }
 }
+
