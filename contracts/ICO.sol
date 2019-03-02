@@ -1,10 +1,11 @@
 pragma solidity ^0.4.24;
 
-import "./ERC20-Token.sol";
+import "./ERC-20.sol";
 
 contract ICO is Owned {
 
-       Token public token;
+    address icoOnwer;
+    Token public token;
     uint public rate;
     uint256 public tokensSold ;
     uint256 private _openingTime;
@@ -14,7 +15,7 @@ contract ICO is Owned {
 
     constructor (address _tokenAddress, uint256 preSale_openingTime, uint256 preSale_closingTime, uint256 openingTime, uint256 closingTime) public {
         token = Token(_tokenAddress);
-
+        icoOnwer = token.owner();
         require(openingTime >= block.timestamp);
         require(closingTime > openingTime);
 
@@ -23,7 +24,11 @@ contract ICO is Owned {
         _preSale_closingTime = preSale_closingTime;
         _preSale_openingTime = preSale_openingTime;
     }
-
+    
+    function transferOwnership(address _newOwner) public onlyOwner {
+        owner = _newOwner;
+    }
+     
 
     function buyToken() public payable {
         if(preSale_isOpen()){
@@ -119,4 +124,5 @@ contract ICO is Owned {
     }
 
 }
+
 

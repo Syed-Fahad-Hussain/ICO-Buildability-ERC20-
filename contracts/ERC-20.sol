@@ -75,9 +75,7 @@ contract Owned {
         _;
     }
 
-    function transferOwnership(address _newOwner) public onlyOwner {
-        owner = _newOwner;
-    }
+
   
 }
 
@@ -201,12 +199,9 @@ contract Token is ERC20Interface, Owned, SafeMath {
         revert();
     }
 
-
-    // ------------------------------------------------------------------------
-    // Owner can transfer out any accidentally sent ERC20 tokens
-    // ------------------------------------------------------------------------
-    function transferAnyERC20Token(address tokenAddress, uint tokens) public onlyOwner returns (bool success) {
-        return ERC20Interface(tokenAddress).transfer(owner, tokens);
+    
+    function transferOwnership(address _newOwner) public onlyOwner {
+        owner = _newOwner;
     }
     
     
@@ -239,4 +234,5 @@ contract Token is ERC20Interface, Owned, SafeMath {
         emit Transfer(account, address(0), value);
     }
 }
+
 
